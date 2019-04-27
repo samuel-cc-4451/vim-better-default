@@ -63,10 +63,8 @@ set matchtime=5    " Show matching time
 set report=0       " Always report changed lines
 set linespace=0    " No extra spaces between rows
 set pumheight=20   " Avoid the pop up menu occupying the whole screen
-
-if !exists('g:vim_better_default_tabs_as_spaces') || g:vim_better_default_tabs_as_spaces
-  set expandtab    " Tabs are spaces, not tabs
-end
+set noexpandtab    " Tabs are spaces, not tabs
+set textwidth=120  "Try breaking after 120 characters
 
 " http://stackoverflow.com/questions/6427650/vim-in-tmux-background-color-changes-when-paging/15095377#15095377
 set t_ut=
@@ -83,6 +81,7 @@ set fileencoding=utf-8
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 
 set wildignore+=*swp,*.class,*.pyc,*.png,*.jpg,*.gif,*.zip
+set wildignore+=.git,*.rbc,*.pyc,__pycache__,.vscode
 set wildignore+=*/tmp/*,*.o,*.obj,*.so     " Unix
 set wildignore+=*\\tmp\\*,*.exe            " Windows
 
@@ -143,17 +142,54 @@ if get(g:, 'vim_better_default_enable_folding', 1)
 endif
 
 set background=dark         " Assume dark background
-set cursorline              " Highlight current line
+" set cursorline              " Highlight current line
 set fileformats=unix,dos,mac        " Use Unix as the standard file type
 set number                  " Line numbers on
-set relativenumber          " Relative numbers on
-set fillchars=vert:│,stl:\ ,stlnc:\ 
+" set relativenumber          " Relative numbers on
+set fillchars=vert:│,stl:\ ,stlnc:\
+
+"" Disable the blinking cursor.
+set gcr=a:blinkon0
+
+""Indent Settings
+set cinoptions="(0,t0"
+set cindent
+set smartindent
+
+
+"" Use modeline overrides
+set modeline
+set modelines=10
+
+set title
+set titleold="Terminal"
+set titlestring=%F
+
+set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 
 " Annoying temporary files
 set directory=/tmp//,.
 set backupdir=/tmp//,.
 if v:version >= 703
   set undodir=/tmp//,.
+endif
+
+"" The PC is fast enough, do syntax highlight syncing from start unless 200 lines
+augroup vimrc-sync-fromstart
+    autocmd!
+    autocmd BufEnter * :syntax sync maxlines=200
+augroup END
+
+"" Remember cursor position
+augroup vimrc-remember-cursor-position
+    autocmd!
+    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup END
+
+" Disable visualbell
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+    autocmd GUIEnter * set visualbell t_vb=
 endif
 
 highlight clear SignColumn  " SignColumn should match background
@@ -165,7 +201,7 @@ else
   set clipboard+=unnamed
 endif
 
-if get(g:, 'vim_better_default_persistent_undo', 0)
+if get(g:, 'vim_better_default_persistent_undo', 1)
   if has('persistent_undo')
     set undofile             " Persistent undo
     set undolevels=1000      " Maximum number of changes that can be undone
