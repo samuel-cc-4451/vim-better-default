@@ -63,7 +63,7 @@ set matchtime=5    " Show matching time
 set report=0       " Always report changed lines
 set linespace=0    " No extra spaces between rows
 set pumheight=20   " Avoid the pop up menu occupying the whole screen
-set noexpandtab    " Tabs are spaces, not tabs
+set expandtab      " Tabs are spaces, not tabs
 set textwidth=120  "Try breaking after 120 characters
 
 " http://stackoverflow.com/questions/6427650/vim-in-tmux-background-color-changes-when-paging/15095377#15095377
@@ -129,12 +129,10 @@ if get(g:, 'vim_better_default_minimum', 0)
   finish
 endif
 
-if get(g:, 'vim_better_default_backup_on', 0)
+if get(g:, 'vim_better_default_backup_on', 1)
   set backup
-else
-  set nobackup
+  set writebackup
   set noswapfile
-  set nowritebackup
 endif
 
 if get(g:, 'vim_better_default_enable_folding', 1)
@@ -144,13 +142,14 @@ if get(g:, 'vim_better_default_enable_folding', 1)
   set foldmethod=marker
   " set foldcolumn=3
   set foldlevelstart=99
+  set foldnestmax=10
 endif
 
 set background=dark         " Assume dark background
-" set cursorline              " Highlight current line
+set cursorline              " Highlight current line
 set fileformats=unix,dos,mac        " Use Unix as the standard file type
 set number                  " Line numbers on
-" set relativenumber          " Relative numbers on
+set relativenumber          " Relative numbers on
 set fillchars=vert:│,stl:\ ,stlnc:\
 
 "" Disable the blinking cursor.
@@ -226,6 +225,11 @@ if has('gui_running')
   set visualbell t_vb=
 endif
 
+" edit vimrc/zshrc and load vimrc bindings
+nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>ez :vsp ~/.zshrc<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
 " Key (re)Mappings {
 
 if get(g:, 'vim_better_default_key_mapping', 1)
@@ -238,26 +242,26 @@ if get(g:, 'vim_better_default_key_mapping', 1)
     " Move half page faster
     nnoremap <Leader>d  <C-d>
     nnoremap <Leader>u  <C-u>
-    " Insert mode shortcut
-    inoremap <C-h> <BS>
-    inoremap <C-j> <Down>
-    inoremap <C-k> <Up>
-    inoremap <C-b> <Left>
-    inoremap <C-f> <Right>
-    " Bash like
-    inoremap <C-a> <Home>
-    inoremap <C-e> <End>
-    inoremap <C-d> <Delete>
-    " Command mode shortcut
-    cnoremap <C-h> <BS>
-    cnoremap <C-j> <Down>
-    cnoremap <C-k> <Up>
-    cnoremap <C-b> <Left>
-    cnoremap <C-f> <Right>
-    cnoremap <C-a> <Home>
-    cnoremap <C-e> <End>
-    cnoremap <C-d> <Delete>
-    " jj | escaping
+    "" Insert mode shortcut "Use readline bindings for insert and command
+    "inoremap <C-h> <BS>
+    "inoremap <C-j> <Down>
+    "inoremap <C-k> <Up>
+    "inoremap <C-b> <Left>
+    "inoremap <C-f> <Right>
+    "" Bash like
+    "inoremap <C-a> <Home>
+    "inoremap <C-e> <End>
+    "inoremap <C-d> <Delete>
+    "" Command mode shortcut
+    "cnoremap <C-h> <BS>
+    "cnoremap <C-j> <Down>
+    "cnoremap <C-k> <Up>
+    "cnoremap <C-b> <Left>
+    "cnoremap <C-f> <Right>
+    "cnoremap <C-a> <Home>
+    "cnoremap <C-e> <End>
+    "cnoremap <C-d> <Delete>
+    "" jj | escaping
     inoremap jj <Esc>
     cnoremap jj <C-c>
     " Quit visual mode
@@ -284,9 +288,11 @@ if get(g:, 'vim_better_default_key_mapping', 1)
       map <Leader>' :shell<CR>
     endif
     " Search result highlight countermand
-    nnoremap <Leader>sc :nohlsearch<CR>
+    nnoremap <Leader>nh :nohlsearch<CR>
     " Toggle pastemode
     nnoremap <Leader>tp :setlocal paste!<CR>
+    " Delete trailing whitespace
+    nnoremap <Leader>tw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
   endif
   " }
 
@@ -324,7 +330,7 @@ if get(g:, 'vim_better_default_key_mapping', 1)
   " }
 
   " Window {
-  if get(g:, 'vim_better_default_window_key_mapping', 1)
+  if get(g:, 'vim_better_default_window_key_mapping', 0)
     nnoremap <Leader>ww <C-W>w
     nnoremap <Leader>wr <C-W>r
     nnoremap <Leader>wd <C-W>c
