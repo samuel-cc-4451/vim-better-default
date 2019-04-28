@@ -243,9 +243,9 @@ if get(g:, 'vim_better_default_key_mapping', 1)
     nnoremap <Leader>d  <C-d>
     nnoremap <Leader>u  <C-u>
     "" Insert mode shortcut "Use readline bindings for insert and command
-    "inoremap <C-h> <BS>
-    "inoremap <C-j> <Down>
-    "inoremap <C-k> <Up>
+    inoremap <C-h> <BS>
+    inoremap <C-j> <Down>
+    inoremap <C-k> <Up>
     "inoremap <C-b> <Left>
     "inoremap <C-f> <Right>
     "" Bash like
