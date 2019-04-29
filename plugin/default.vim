@@ -81,7 +81,7 @@ set fileencoding=utf-8
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 
 set wildignore+=*swp,*.class,*.pyc,*.png,*.jpg,*.gif,*.zip
-set wildignore+=.git,*.rbc,*.pyc,__pycache__,.vscode
+set wildignore+=.git/*,*.rbc,*.pyc,__pycache__,.vscode/*,*.swp,*.db,html/*,vendor/*
 set wildignore+=*/tmp/*,*.o,*.obj,*.so     " Unix
 set wildignore+=*\\tmp\\*,*.exe            " Windows
 
@@ -229,7 +229,7 @@ endif
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
-
+nnoremap <leader>ee :Lexplore<CR>
 " Key (re)Mappings {
 
 if get(g:, 'vim_better_default_key_mapping', 1)
