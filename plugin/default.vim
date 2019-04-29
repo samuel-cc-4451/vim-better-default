@@ -242,25 +242,34 @@ if get(g:, 'vim_better_default_key_mapping', 1)
     " Move half page faster
     nnoremap <Leader>d  <C-d>
     nnoremap <Leader>u  <C-u>
-    "" Insert mode shortcut "Use readline bindings for insert and command
+    "" Insert mode shortcut
+    " Bash like
     inoremap <C-h> <BS>
     inoremap <C-j> <Down>
     inoremap <C-k> <Up>
-    "inoremap <C-b> <Left>
-    "inoremap <C-f> <Right>
-    "" Bash like
-    "inoremap <C-a> <Home>
-    "inoremap <C-e> <End>
-    "inoremap <C-d> <Delete>
-    "" Command mode shortcut
-    "cnoremap <C-h> <BS>
-    "cnoremap <C-j> <Down>
-    "cnoremap <C-k> <Up>
-    "cnoremap <C-b> <Left>
-    "cnoremap <C-f> <Right>
-    "cnoremap <C-a> <Home>
-    "cnoremap <C-e> <End>
-    "cnoremap <C-d> <Delete>
+    inoremap <C-b> <Left>
+    inoremap <C-f> <Right>
+    inoremap <M-b> <S-Left>
+    inoremap <M-f> <S-Right>
+    inoremap <C-/> <C-o>u
+    inoremap <C-y> <C-o>p
+    inoremap <M-d> <C-o>de
+    inoremap <M-w> <C-o>dw
+    inoremap <C-a> <Home>
+    inoremap <C-e> <End>
+    inoremap <C-d> <Delete>
+    " Command mode shortcut
+    cnoremap <C-h> <BS>
+    cnoremap <C-j> <Down>
+    cnoremap <C-k> <Up>
+    cnoremap <C-b> <Left>
+    cnoremap <C-f> <Right>
+    cnoremap <C-a> <Home>
+    cnoremap <C-e> <End>
+    cnoremap <C-d> <Delete>
+    cnoremap <M-f> <S-Right>
+    cnoremap <M-b> <S-Left>
+
     "" jj | escaping
     inoremap jj <Esc>
     cnoremap jj <C-c>
