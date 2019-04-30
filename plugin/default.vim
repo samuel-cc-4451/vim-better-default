@@ -199,7 +199,6 @@ highlight clear SignColumn  " SignColumn should match background
 
 "Spellcheck
 set spelllang=en_us
-set spellfile=~/.vim/spellfile,./.git/spellfile
 nnoremap <silent> <Leader>sc :set spell!<CR>
 
 if has('unnamedplus')
