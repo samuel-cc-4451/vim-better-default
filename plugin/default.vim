@@ -174,9 +174,7 @@ set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 " Annoying temporary files
 set directory=/tmp//,.
 set backupdir=/tmp//,.
-if v:version >= 703
-  set undodir=/tmp//,.
-endif
+set undodir=/tmp//,.
 
 "" The PC is fast enough, do syntax highlight syncing from start unless 200 lines
 augroup vimrc-sync-fromstart
@@ -198,6 +196,11 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 highlight clear SignColumn  " SignColumn should match background
 " highlight clear LineNr      " Current line number row will have same background color in relative mode
+
+"Spellcheck
+set spelllang=en_us
+set spellfile=~/.vim/spellfile,./.git/spellfile
+nnoremap <silent> <Leader>sc :set spell!<CR>
 
 if has('unnamedplus')
   set clipboard=unnamedplus,unnamed
