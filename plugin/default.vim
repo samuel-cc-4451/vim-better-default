@@ -16,8 +16,7 @@ set cpo&vim
 " Neovim has set these as default
 if !has('nvim')
 
-  set nocompatible
-
+  set nocompatible               " Be imporoved
   syntax on                      " Syntax highlighting
   filetype plugin indent on      " Automatically detect file types
   set autoindent                 " Indent at the same level of the previous line
@@ -33,19 +32,20 @@ if !has('nvim')
   set mouse=a                    " Automatically enable mouse usage
   set smarttab                   " Smart tab
   set ttyfast                    " Faster redrawing
-  set viminfo+=!                 " Viminfo include !
+  set viminfo+=!,"100,%,/100,n~/.vim/viminfo " Viminfo include !
   set wildmenu                   " Show list instead of just completing
 
   set ttymouse=xterm2
 
 endif
 
+filetype indent on " Automaticllay indent filetyps
 set shortmess=atOI " No help Uganda information, and overwrite read messages to avoid PRESS ENTER prompts
 set ignorecase     " Case insensitive search
 set smartcase      " ... but case sensitive when uc present
 set scrolljump=5   " Line to scroll when cursor leaves screen
 set scrolloff=3    " Minumum lines to keep above and below cursor
-set nowrap         " Do not wrap long lines
+"set nowrap         " Do not wrap long lines
 set shiftwidth=4   " Use indents of 4 spaces
 set tabstop=4      " An indentation every four columns
 set softtabstop=4  " Let backspace delete indent
@@ -59,12 +59,14 @@ set ruler          " Show the ruler
 set showcmd        " Show partial commands in status line and Selected characters/lines in visual mode
 set showmode       " Show current mode in command-line
 set showmatch      " Show matching brackets/parentthesis
-set matchtime=5    " Show matching time
+set matchtime=3    " Show matching time
 set report=0       " Always report changed lines
 set linespace=0    " No extra spaces between rows
 set pumheight=20   " Avoid the pop up menu occupying the whole screen
 set expandtab      " Tabs are spaces, not tabs
 set textwidth=120  "Try breaking after 120 characters
+set switchbuf=useopen,usetab,newtab "buffer switching behaviour
+set lazyredraw     "redraw only if needed
 
 " http://stackoverflow.com/questions/6427650/vim-in-tmux-background-color-changes-when-paging/15095377#15095377
 set t_ut=
@@ -183,10 +185,7 @@ augroup vimrc-sync-fromstart
 augroup END
 
 "" Remember cursor position
-augroup vimrc-remember-cursor-position
-  autocmd!
-  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-augroup END
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 "IDE like completion
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
