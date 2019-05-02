@@ -40,6 +40,7 @@ if !has('nvim')
 endif
 
 filetype indent on " Automaticllay indent filetyps
+filetype plugin on " Add syntax completions for filetyps
 set shortmess=atOI " No help Uganda information, and overwrite read messages to avoid PRESS ENTER prompts
 set ignorecase     " Case insensitive search
 set smartcase      " ... but case sensitive when uc present
