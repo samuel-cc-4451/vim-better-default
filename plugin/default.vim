@@ -231,7 +231,12 @@ endif
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+
+"File Manager
 nnoremap <leader>ee :Lexplore<CR>
+"List Open
+nnoremap <leader>lo :lopen<CR>
+
 " Key (re)Mappings {
 
 if get(g:, 'vim_better_default_key_mapping', 1)
