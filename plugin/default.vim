@@ -42,6 +42,7 @@ endif
 filetype indent on " Automaticllay indent filetyps
 filetype plugin on " Add syntax completions for filetyps
 set shortmess=atOI " No help Uganda information, and overwrite read messages to avoid PRESS ENTER prompts
+set shortmess+=c   " Shutoff completion messages"
 set ignorecase     " Case insensitive search
 set smartcase      " ... but case sensitive when uc present
 set scrolljump=5   " Line to scroll when cursor leaves screen
@@ -87,6 +88,9 @@ set wildignore+=*swp,*.class,*.pyc,*.png,*.jpg,*.gif,*.zip
 set wildignore+=.git/*,*.rbc,*.pyc,__pycache__,.vscode/*,*.swp,*.db,html/*,vendor/*
 set wildignore+=*/tmp/*,*.o,*.obj,*.so     " Unix
 set wildignore+=*\\tmp\\*,*.exe            " Windows
+
+"completion
+completeopt+=menuone,noselect
 
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
@@ -188,12 +192,6 @@ augroup END
 "" Remember cursor position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
-"IDE like completion
-"inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-"inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
-"autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
 highlight clear SignColumn  " SignColumn should match background
 " highlight clear LineNr      " Current line number row will have same background color in relative mode
 
@@ -220,7 +218,6 @@ if has('gui_running')
   set guioptions-=L        " Hide the left scrollbar
   set guioptions-=T
   set guioptions-=e
-  set shortmess+=c
   " No annoying sound on errors
   set noerrorbells
   set novisualbell
