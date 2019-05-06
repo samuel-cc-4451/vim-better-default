@@ -90,7 +90,7 @@ set wildignore+=*/tmp/*,*.o,*.obj,*.so     " Unix
 set wildignore+=*\\tmp\\*,*.exe            " Windows
 
 "completion
-completeopt+=menuone,noselect
+set completeopt+=menuone,noselect
 
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
