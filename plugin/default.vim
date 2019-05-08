@@ -1,5 +1,6 @@
 " default.vim - Better vim than the default
-" Maintainer:   Liu-Cheng Xu <https://github.com/liuchengxu>
+" Maintainer: Samuel Cherukutty <https://github.com/scherukutty>
+" Courtesy:   Liu-Cheng Xu <https://github.com/liuchengxu>
 " Version:      1.0
 " vim: et ts=2 sts=2 sw=2
 
@@ -233,6 +234,9 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>ee :Lexplore<CR>
 "List Open
 nnoremap <leader>lo :lopen<CR>
+nnoremap <leader>co :copen<CR>
+nnoremap <leader>cn :cnext<CR>
+nnoremap <leader>cp :cprevious<CR>
 
 " Key (re)Mappings {
 
@@ -257,8 +261,6 @@ if get(g:, 'vim_better_default_key_mapping', 1)
     inoremap <M-f> <S-Right>
     inoremap <C-/> <C-o>u
     inoremap <C-y> <C-o>p
-    inoremap <M-d> <C-o>de
-    inoremap <M-w> <C-o>dw
     inoremap <C-a> <Home>
     inoremap <C-e> <End>
     inoremap <C-d> <Delete>
