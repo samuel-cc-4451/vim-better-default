@@ -249,10 +249,10 @@ if get(g:, 'vim_better_default_key_mapping', 1)
     "" Insert mode shortcut
     " Bash like
     inoremap <C-h> <BS>
-    inoremap <C-j> <Down>
-    inoremap <C-k> <Up>
-    inoremap <C-b> <Left>
-    inoremap <C-f> <Right>
+    inoremap <M-j> <Down>
+    inoremap <M-k> <Up>
+    inoremap <M-h> <Left>
+    inoremap <M-l> <Right>
     inoremap <M-b> <S-Left>
     inoremap <M-f> <S-Right>
     inoremap <C-/> <C-o>u
