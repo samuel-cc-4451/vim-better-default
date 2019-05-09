@@ -200,6 +200,12 @@ highlight clear SignColumn  " SignColumn should match background
 set spelllang=en_us
 nnoremap <silent> <Leader>sc :set spell!<CR>
 
+"Timeouts
+set timeout
+set ttimeout
+set timeoutlen=1000
+set ttimeoutlen=50
+
 if has('unnamedplus')
   set clipboard=unnamedplus,unnamed
 else
@@ -325,7 +331,8 @@ if get(g:, 'vim_better_default_key_mapping', 1)
   " File {
   if get(g:, 'vim_better_default_file_key_mapping', 1)
     " File save
-    nnoremap <Leader>fs :update<CR>
+    nnoremap <Leader>su :update<CR>
+    nnoremap <Leader>ss :wqa!<CR>
   endif
   " }
 
