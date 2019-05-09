@@ -240,9 +240,9 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>ee :Lexplore<CR>
 "List Open
 nnoremap <leader>lo :lopen<CR>
-nnoremap <leader>co :copen<CR>
-nnoremap <leader>cn :cnext<CR>
-nnoremap <leader>cp :cprevious<CR>
+nnoremap <leader>eo :clist!<CR>
+nnoremap <leader>en :cnext<CR>
+nnoremap <leader>ep :cprevious<CR>
 
 " Key (re)Mappings {
 
