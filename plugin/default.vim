@@ -89,7 +89,7 @@ set fileencoding=utf-8
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 
 set wildignore+=*swp,*.class,*.pyc,*.png,*.jpg,*.gif,*.zip
-set wildignore+=.git/*,*.rbc,*.pyc,__pycache__,.vscode/*,*.swp,*.db,html/*,vendor/*,compile_commands.json,build/*
+set wildignore+=*/.git/*,*.rbc,*.pyc,*/__pycache__,*/.vscode/*,*.swp,*.db,*/html/*,*/vendor/*,*/compile_commands.json,*/build/*
 set wildignore+=*/tmp/*,*.o,*.obj,*.so     " Unix
 set wildignore+=*\\tmp\\*,*.exe            " Windows
 
