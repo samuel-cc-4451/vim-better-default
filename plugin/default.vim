@@ -24,14 +24,18 @@ if !has('nvim')
   set autoread                   " Automatically read a file changed outside of vim
   set backspace=indent,eol,start " Backspace for dummies
   set complete-=i                " Exclude files completion
-  set display=lastline           " Show as much as possible of the last line
+  set cscopeverbose              " Verbose Cscope
+  set display="lastline,msgsep"  " Show as much as possible of the last line
   set encoding=utf-8             " Set default encoding
   set history=10000              " Maximum history record
   set hlsearch                   " Highlight search terms
   set incsearch                  " Find as you type search
   set laststatus=2               " Always show status line
   set mouse=a                    " Automatically enable mouse usage
+  set nrformats="bin,hex"
+  set ruler                      " Show the ruler
   set smarttab                   " Smart tab
+  set tabpagemax=50
   set ttyfast                    " Faster redrawing
   set viminfo+=!,"100,%,/100,n~/.vim/viminfo " Viminfo include !
   set wildmenu                   " Show list instead of just completing
@@ -58,7 +62,6 @@ set autowrite      " Automatically write a file when leaving a modified buffer
 set mousehide      " Hide the mouse cursor while typing
 set hidden         " Allow buffer switching without saving
 set t_Co=256       " Use 256 colors
-set ruler          " Show the ruler
 set showcmd        " Show partial commands in status line and Selected characters/lines in visual mode
 set showmode       " Show current mode in command-line
 set showmatch      " Show matching brackets/parentthesis
@@ -130,6 +133,7 @@ endif
 " inside neovim
 if has('nvim')
   set inccommand=split
+  tnoremap <Esc> <C-\><C-n>
 endif
 " }
 
@@ -242,8 +246,6 @@ nnoremap <leader>ee :Lexplore<CR>
 "List Open
 nnoremap <leader>lo :lopen<CR>
 nnoremap <leader>eo :clist!<CR>
-nnoremap <leader>en :cnext<CR>
-nnoremap <leader>ep :cprevious<CR>
 
 " Key (re)Mappings {
 
@@ -314,8 +316,6 @@ if get(g:, 'vim_better_default_key_mapping', 1)
 
   " Buffer {
   if get(g:, 'vim_better_default_buffer_key_mapping', 1)
-    nnoremap <Leader>bp :bprevious<CR>
-    nnoremap <Leader>bn :bnext<CR>
     nnoremap <Leader>bd :bw!<CR>
   endif
   " }
@@ -323,8 +323,7 @@ if get(g:, 'vim_better_default_key_mapping', 1)
   " File {
   if get(g:, 'vim_better_default_file_key_mapping', 1)
     " File save
-    nnoremap <Leader>su :update<CR>
-    nnoremap <Leader>ss :w<CR>
+    nnoremap <Leader>ss :update<CR>
   endif
   " }
 
