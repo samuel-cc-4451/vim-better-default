@@ -129,7 +129,7 @@ endif
 
 " inside neovim
 if has('nvim')
-  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=2
+  set inccommand=split
 endif
 " }
 
