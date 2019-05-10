@@ -234,6 +234,7 @@ endif
 " edit vimrc/zshrc and load vimrc bindings
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
+nnoremap <leader>eb :vsp ~/.bashrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
 "File Manager
@@ -250,12 +251,6 @@ if get(g:, 'vim_better_default_key_mapping', 1)
 
   " Basic {
   if get(g:, 'vim_better_default_basic_key_mapping', 1)
-    " Quit normal mode
-    nnoremap <silent> <Leader>q  :q<CR>
-    nnoremap <Leader>Q  :qa!<CR>
-    " Move half page faster
-    nnoremap <Leader>d  <C-d>
-    nnoremap <Leader>u  <C-u>
     "" Insert mode shortcut
     " Bash like
     inoremap <C-h> <BS>
@@ -309,7 +304,7 @@ if get(g:, 'vim_better_default_key_mapping', 1)
       map <Leader>' :shell<CR>
     endif
     " Search result highlight countermand
-    nnoremap <Leader>nh :nohlsearch<CR>
+    nnoremap <Leader>nh nohlsearch<CR>
     " Toggle pastemode
     nnoremap <Leader>tp :setlocal paste!<CR>
     " Delete trailing whitespace
@@ -321,10 +316,7 @@ if get(g:, 'vim_better_default_key_mapping', 1)
   if get(g:, 'vim_better_default_buffer_key_mapping', 1)
     nnoremap <Leader>bp :bprevious<CR>
     nnoremap <Leader>bn :bnext<CR>
-    nnoremap <Leader>bf :bfirst<CR>
-    nnoremap <Leader>bl :blast<CR>
-    nnoremap <Leader>bd :bd<CR>
-    nnoremap <Leader>bk :bw<CR>
+    nnoremap <Leader>bd :bw!<CR>
   endif
   " }
 
@@ -332,51 +324,7 @@ if get(g:, 'vim_better_default_key_mapping', 1)
   if get(g:, 'vim_better_default_file_key_mapping', 1)
     " File save
     nnoremap <Leader>su :update<CR>
-    nnoremap <Leader>ss :wqa!<CR>
-  endif
-  " }
-
-  " Fold {
-  if get(g:, 'vim_better_default_fold_key_mapping', 1)
-    nnoremap <Leader>f0 :set foldlevel=0<CR>
-    nnoremap <Leader>f1 :set foldlevel=1<CR>
-    nnoremap <Leader>f2 :set foldlevel=2<CR>
-    nnoremap <Leader>f3 :set foldlevel=3<CR>
-    nnoremap <Leader>f4 :set foldlevel=4<CR>
-    nnoremap <Leader>f5 :set foldlevel=5<CR>
-    nnoremap <Leader>f6 :set foldlevel=6<CR>
-    nnoremap <Leader>f7 :set foldlevel=7<CR>
-    nnoremap <Leader>f8 :set foldlevel=8<CR>
-    nnoremap <Leader>f9 :set foldlevel=9<CR>
-  endif
-  " }
-
-  " Window {
-  if get(g:, 'vim_better_default_window_key_mapping', 0)
-    nnoremap <Leader>ww <C-W>w
-    nnoremap <Leader>wr <C-W>r
-    nnoremap <Leader>wd <C-W>c
-    nnoremap <Leader>wq <C-W>q
-    nnoremap <Leader>wj <C-W>j
-    nnoremap <Leader>wk <C-W>k
-    nnoremap <Leader>wh <C-W>h
-    nnoremap <Leader>wl <C-W>l
-    if has('nvim') || has('terminal')
-      tnoremap <Leader>wj <C-W>j
-      tnoremap <Leader>wk <C-W>k
-      tnoremap <Leader>wh <C-W>h
-      tnoremap <Leader>wl <C-W>l
-    endif
-    nnoremap <Leader>wH <C-W>5<
-    nnoremap <Leader>wL <C-W>5>
-    nnoremap <Leader>wJ :resize +5<CR>
-    nnoremap <Leader>wK :resize -5<CR>
-    nnoremap <Leader>w= <C-W>=
-    nnoremap <Leader>ws <C-W>s
-    nnoremap <Leader>w- <C-W>s
-    nnoremap <Leader>wv <C-W>v
-    nnoremap <Leader>w\| <C-W>v
-    nnoremap <Leader>w2 <C-W>v
+    nnoremap <Leader>ss :w<CR>
   endif
   " }
 
