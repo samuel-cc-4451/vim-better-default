@@ -241,11 +241,8 @@ nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>eb :vsp ~/.bashrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
-"File Manager
-nnoremap <leader>ee :Lexplore<CR>
 "List Open
-nnoremap <leader>lo :lopen<CR>
-nnoremap <leader>eo :clist!<CR>
+nnoremap <leader>ll :lopen<CR>
 
 " Key (re)Mappings {
 
@@ -266,13 +263,15 @@ if get(g:, 'vim_better_default_key_mapping', 1)
     inoremap <C-y> <C-o>p
     inoremap <C-a> <Home>
     inoremap <C-e> <End>
-    inoremap <C-d> <Delete>
+    inoremap <C-d> <C-o>x
+    inoremap <M-d> <C-o>dw
+    inoremap <M-w> <C-o>db
     " Command mode shortcut
     cnoremap <C-h> <BS>
-    cnoremap <C-j> <Down>
-    cnoremap <C-k> <Up>
-    cnoremap <C-b> <Left>
-    cnoremap <C-f> <Right>
+    cnoremap <M-j> <Down>
+    cnoremap <M-k> <Up>
+    cnoremap <M-b> <Left>
+    cnoremap <M-f> <Right>
     cnoremap <C-a> <Home>
     cnoremap <C-e> <End>
     cnoremap <C-d> <Delete>
