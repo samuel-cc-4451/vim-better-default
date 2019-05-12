@@ -74,6 +74,8 @@ set textwidth=120  "Try breaking after 120 characters
 set switchbuf=useopen,usetab,newtab "buffer switching behaviour
 set lazyredraw     "redraw only if needed
 
+"Ask vim to look into subdirectories
+set path+=**
 " http://stackoverflow.com/questions/6427650/vim-in-tmux-background-color-changes-when-paging/15095377#15095377
 set t_ut=
 
@@ -296,6 +298,12 @@ if get(g:, 'vim_better_default_key_mapping', 1)
 endif
 
 " }
+
+"netrw {
+let g:netrw_liststyle=1
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_sizestyle="H"
+"}
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
