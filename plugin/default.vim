@@ -252,7 +252,7 @@ if get(g:, 'vim_better_default_key_mapping', 1)
     inoremap <M-b> <S-Left>
     inoremap <M-f> <S-Right>
     inoremap <C-/> <C-o>u
-    inoremap <C-y> <C-o>p
+    inoremap <C-y> <C-R>"
     inoremap <C-a> <Home>
     inoremap <C-e> <End>
     inoremap <C-d> <C-o>x
