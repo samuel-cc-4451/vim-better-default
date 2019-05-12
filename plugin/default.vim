@@ -202,7 +202,6 @@ highlight clear SignColumn  " SignColumn should match background
 
 "Spellcheck
 set spelllang=en_us
-nnoremap <silent> <Leader>sc :set spell!<CR>
 
 "Timeouts
 set timeout
@@ -235,15 +234,6 @@ if has('gui_running')
   set visualbell t_vb=
 endif
 
-" edit vimrc/zshrc and load vimrc bindings
-nnoremap <leader>ev :vsp $MYVIMRC<CR>
-nnoremap <leader>ez :vsp ~/.zshrc<CR>
-nnoremap <leader>eb :vsp ~/.bashrc<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
-
-"List Open
-nnoremap <leader>ll :lopen<CR>
-
 " Key (re)Mappings {
 
 if get(g:, 'vim_better_default_key_mapping', 1)
@@ -270,14 +260,16 @@ if get(g:, 'vim_better_default_key_mapping', 1)
     cnoremap <C-h> <BS>
     cnoremap <M-j> <Down>
     cnoremap <M-k> <Up>
-    cnoremap <M-b> <Left>
-    cnoremap <M-f> <Right>
+    cnoremap <M-h> <Left>
+    cnoremap <M-l> <Right>
     cnoremap <C-a> <Home>
     cnoremap <C-e> <End>
     cnoremap <C-d> <Delete>
     cnoremap <M-f> <S-Right>
     cnoremap <M-b> <S-Left>
 
+    "Semicolon at eol
+    inoremap ;; <end>;<cr>
     "" jj | escaping
     inoremap jj <Esc>
     cnoremap jj <C-c>
@@ -298,31 +290,6 @@ if get(g:, 'vim_better_default_key_mapping', 1)
     nnoremap Y y$
     " Auto indent pasted text
     " nnoremap p p=`]<C-o>
-    " Open shell in vim
-    if has('nvim') || has('terminal')
-      map <Leader>' :terminal<CR>
-    else
-      map <Leader>' :shell<CR>
-    endif
-    " Search result highlight countermand
-    nnoremap <Leader>nh nohlsearch<CR>
-    " Toggle pastemode
-    nnoremap <Leader>tp :setlocal paste!<CR>
-    " Delete trailing whitespace
-    nnoremap <Leader>tw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
-  endif
-  " }
-
-  " Buffer {
-  if get(g:, 'vim_better_default_buffer_key_mapping', 1)
-    nnoremap <Leader>bd :bw!<CR>
-  endif
-  " }
-
-  " File {
-  if get(g:, 'vim_better_default_file_key_mapping', 1)
-    " File save
-    nnoremap <Leader>ss :update<CR>
   endif
   " }
 
