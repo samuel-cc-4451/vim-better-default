@@ -44,6 +44,10 @@ if !has('nvim')
   set viminfo+=!,"100,%,/100,n~/.vim/viminfo " Viminfo include !
   set wildmenu                   " Show list instead of just completing
 
+  " Annoying temporary files
+  set directory=/tmp//,.
+  set backupdir=/tmp//,.
+  set undodir=/tmp//,.
   set ttymouse=xterm2
 
 endif
@@ -123,10 +127,6 @@ set titleold="Terminal"
 set titlestring=%F
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 
-" Annoying temporary files
-set directory=/tmp//,.
-set backupdir=/tmp//,.
-set undodir=/tmp//,.
 
 "Spellcheck
 set spelllang=en_us
@@ -136,6 +136,9 @@ set timeout
 set ttimeout
 set timeoutlen=1000
 set ttimeoutlen=50
+
+"Tag
+set tagcase=smart
 
 if has('unnamedplus')
   set clipboard=unnamedplus,unnamed
@@ -179,7 +182,6 @@ vmap k gk
 " Key (re)Mappings {
 "" Insert mode shortcut
 " Bash like
-inoremap <C-h> <BS>
 inoremap <C-n> <Down>
 inoremap <C-p> <Up>
 inoremap <C-b> <Left>
@@ -194,7 +196,6 @@ inoremap <C-d> <C-o>x
 inoremap <M-d> <C-o>dw
 inoremap <M-w> <C-o>db
 " Command mode shortcut
-cnoremap <C-h> <BS>
 cnoremap <C-n> <Down>
 cnoremap <C-p> <Up>
 cnoremap <C-b> <Left>
