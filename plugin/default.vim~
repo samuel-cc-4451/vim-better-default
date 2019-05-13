@@ -128,6 +128,8 @@ set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 set spelllang=en_us
 
 "Timeouts
+set timeout
+set ttimeout
 set timeoutlen=1000
 set ttimeoutlen=50
 
@@ -142,6 +144,8 @@ else
 endif
 if has('persistent_undo')
   set undofile             " Persistent undo
+  set undolevels=1000      " Maximum number of changes that can be undone
+  set undoreload=10000     " Maximum number lines to save for undo on a buffer reload
 endif
 
 if has('gui_running')
