@@ -44,10 +44,6 @@ if !has('nvim')
   set viminfo+=!,"100,%,/100,n~/.vim/viminfo " Viminfo include !
   set wildmenu                   " Show list instead of just completing
 
-  " Annoying temporary files
-  set directory=/tmp//,.
-  set backupdir=/tmp//,.
-  set undodir=/tmp//,.
   set ttymouse=xterm2
 
 endif
@@ -123,9 +119,13 @@ set titleold="Terminal"
 set titlestring=%F
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 
-
 "Spellcheck
 set spelllang=en_us
+
+" Annoying temporary files
+set directory=/tmp//,.
+set backupdir=/tmp//,.
+set undodir=/tmp//,.
 
 "Timeouts
 set timeoutlen=1000
