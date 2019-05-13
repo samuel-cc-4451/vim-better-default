@@ -99,7 +99,7 @@ set noswapfile
 set foldenable
 set foldmarker={,}
 set foldlevel=0
-set foldmethod=marker
+set foldmethod=syntax
 set foldlevelstart=99
 set foldnestmax=10
 set background=dark         " Assume dark background
@@ -180,10 +180,10 @@ vmap k gk
 "" Insert mode shortcut
 " Bash like
 inoremap <C-h> <BS>
-inoremap <M-j> <Down>
-inoremap <M-k> <Up>
-inoremap <M-h> <Left>
-inoremap <M-l> <Right>
+inoremap <C-n> <Down>
+inoremap <C-p> <Up>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
 inoremap <M-b> <S-Left>
 inoremap <M-f> <S-Right>
 inoremap <C-/> <C-o>u
@@ -195,10 +195,10 @@ inoremap <M-d> <C-o>dw
 inoremap <M-w> <C-o>db
 " Command mode shortcut
 cnoremap <C-h> <BS>
-cnoremap <M-j> <Down>
-cnoremap <M-k> <Up>
-cnoremap <M-h> <Left>
-cnoremap <M-l> <Right>
+cnoremap <C-n> <Down>
+cnoremap <C-p> <Up>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <C-d> <Delete>
@@ -223,6 +223,8 @@ nnoremap <CR> :
 " In the quickfix window, <CR> is used to jump to the error under the
 " cursor, so undefine the mapping there.
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+"Quit quickfix on q
+autocmd BufReadPost quickfix nnoremap <buffer> q :q!<CR>
 " Yank to the end of line
 nnoremap Y y$
 " Auto indent pasted text
