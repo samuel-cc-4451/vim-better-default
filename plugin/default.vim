@@ -103,7 +103,7 @@ set background=dark         " Assume dark background
 set fileformats=unix,dos,mac        " Use Unix as the standard file type
 set number                  " Line numbers on
 set relativenumber          " Relative numbers on
-set fillchars=stl:^,stlnc:=,vert:│,fold:·,diff:-
+set fillchars=vert:│,stl:\ ,stlnc:\ ,fold:·,diff:-
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
 ""Indent Settings
