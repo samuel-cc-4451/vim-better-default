@@ -170,6 +170,10 @@ nmap j gj
 nmap k gk
 vmap j gj
 vmap k gk
+"Tab Switching
+map <C-Tab> :tabn <CR>
+map <C-S-Tab> :tabp <CR>
+
 "}
 
 " Key (re)Mappings {
@@ -188,6 +192,9 @@ inoremap <C-e> <End>
 inoremap <C-d> <C-o>x
 inoremap <M-d> <C-o>dw
 inoremap <M-w> <C-o>db
+inoremap <M-v> <C-o><C-u>
+inoremap <C-v> <C-o><C-d>
+
 " Command mode shortcut
 cnoremap <C-n> <Down>
 cnoremap <C-p> <Up>
