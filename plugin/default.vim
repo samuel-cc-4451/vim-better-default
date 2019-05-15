@@ -87,8 +87,8 @@ set whichwrap+=<,>,h,l  " Allow backspace and cursor keys to cross line boundari
 set fileencoding=utf-8
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set wildignore+=*swp,*.class,*.pyc,*.png,*.jpg,*.gif,*.zip
-set wildignore+=*.rbc,*.pyc,__pycache__,.vscode/*,*.swp,*.db,html/*,vendor/*,build/*
-set wildignore+=*/tmp/*,*.o,*.obj,*.so     " Unix
+set wildignore+=*.rbc,*.pyc,__pycache__,.vscode/*,*.swp,*.db,html/*,vendor/*
+set wildignore+=*/tmp/*,*.o,*.obj,*.so,*.bc     " Unix
 set wildignore+=*\\tmp\\*,*.exe            " Windows
 set completeopt+=menuone,noselect  "completion
 set backup
