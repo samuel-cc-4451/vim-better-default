@@ -96,7 +96,7 @@ set noswapfile
 set foldenable
 set foldmarker={,}
 set foldlevel=0
-set foldmethod=syntax
+set foldmethod=indent
 set foldlevelstart=99
 set background=dark         " Assume dark background
 "set cursorline              " Highlight current line
