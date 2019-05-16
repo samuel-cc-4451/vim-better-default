@@ -135,6 +135,9 @@ set ttimeoutlen=50
 set tagcase=smart
 set showfulltag
 
+"SignColumn
+set signcolumn=yes  "prevent unwanted shifting
+
 if has('unnamedplus')
   set clipboard=unnamedplus,unnamed
 else
@@ -249,8 +252,6 @@ augroup END
 "" Remember cursor position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
-highlight clear SignColumn  " SignColumn should match background
-" highlight clear LineNr      " Current line number row will have same background color in relative mode
 "}
 
 "netrw {
