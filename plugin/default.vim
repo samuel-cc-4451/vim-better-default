@@ -134,7 +134,6 @@ set ttimeoutlen=50
 "Tag
 set tagcase=smart
 set showfulltag
-set cscopetag
 set cscopepathcomp=3
 set cscopequickfix=s+,c+,d+,i+,t+,e+,a+
 
