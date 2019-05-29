@@ -136,6 +136,7 @@ set tagcase=smart
 set showfulltag
 set cscopepathcomp=3
 set cscopequickfix=s+,c+,d+,i+,t+,e+,a+
+set cscoperelative
 
 "SignColumn
 set signcolumn=yes  "prevent unwanted shifting
@@ -176,8 +177,8 @@ nmap k gk
 vmap j gj
 vmap k gk
 "Tab Switching
-map <C-Tab> :tabn <CR>
-map <C-S-Tab> :tabp <CR>
+nnoremap t gt
+nnoremap T gT
 
 "}
 
@@ -191,7 +192,7 @@ inoremap <C-f> <Right>
 inoremap <M-b> <S-Left>
 inoremap <M-f> <S-Right>
 inoremap <C-/> <C-o>u
-inoremap <C-y> <C-R>"
+inoremap <C-y> <C-o>p
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
 inoremap <C-d> <C-o>x
