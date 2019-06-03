@@ -189,6 +189,7 @@ inoremap <C-n> <Down>
 inoremap <C-p> <Up>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
+inoremap <C-k> <C-o>D
 inoremap <M-b> <S-Left>
 inoremap <M-f> <S-Right>
 inoremap <C-/> <C-o>u
@@ -214,26 +215,29 @@ cnoremap <M-b> <S-Left>
 
 "Semicolon at eol
 inoremap ;; <end>;<cr>
-"" jj | escaping
-inoremap jj <Esc>
-cnoremap jj <C-c>
+
+"" jk | escaping
+inoremap jk <Esc>
+cnoremap jk <C-c>
+
 " Quit visual mode
 vnoremap v <Esc>
+
 " Move to the start of line
 nnoremap H ^
+
 " Move to the end of line
 nnoremap L $
+
 " Redo
 nnoremap U <C-r>
+
 " Quick command mode
 nnoremap <CR> :
-" In the quickfix window, <CR> is used to jump to the error under the
-" cursor, so undefine the mapping there.
-autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
-"Quit quickfix on q
-autocmd BufReadPost quickfix nnoremap <buffer> q :q!<CR>
+
 " Yank to the end of line
 nnoremap Y y$
+
 " Auto indent pasted text
 " nnoremap p p=`]<C-o>
 "}
@@ -253,7 +257,10 @@ augroup vimrc-sync-fromstart
 augroup END
 
 "" Remember cursor position
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup rememeber-cursor
+  autocmd!
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup END
 
 "}
 
