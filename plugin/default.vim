@@ -216,9 +216,9 @@ cnoremap <M-b> <S-Left>
 "Semicolon at eol
 inoremap ;; <end>;<cr>
 
-"" jk | escaping
-inoremap jk <Esc>
-cnoremap jk <C-c>
+"" jj | escaping
+inoremap jj <Esc>
+cnoremap jj <C-c>
 
 " Quit visual mode
 vnoremap v <Esc>
