@@ -58,6 +58,7 @@ set ignorecase     " Case insensitive search
 set smartcase      " ... but case sensitive when uc present
 set scrolljump=5   " Line to scroll when cursor leaves screen
 set scrolloff=3    " Minumum lines to keep above and below cursor
+set pastetoggle=<F2> " Toggle paste mode using F2
 "set nowrap         " Do not wrap long lines
 set shiftwidth=4   " Use indents of 4 spaces
 set tabstop=4      " An indentation every four columns
