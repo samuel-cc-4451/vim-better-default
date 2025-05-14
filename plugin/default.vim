@@ -58,8 +58,8 @@ set ignorecase     " Case insensitive search
 set smartcase      " ... but case sensitive when uc present
 set scrolljump=5   " Line to scroll when cursor leaves screen
 set scrolloff=3    " Minumum lines to keep above and below cursor
-set pastetoggle=<F2> " Toggle paste mode using F2
-"set nowrap         " Do not wrap long lines
+"set pastetoggle=<F2> " Toggle paste mode using F2
+set nowrap         " Do not wrap long lines
 set shiftwidth=4   " Use indents of 4 spaces
 set tabstop=4      " An indentation every four columns
 set softtabstop=4  " Let backspace delete indent
@@ -135,9 +135,9 @@ set ttimeoutlen=50
 "Tag
 set tagcase=smart
 set showfulltag
-set cscopepathcomp=3
-set cscopequickfix=s+,c+,d+,i+,t+,e+,a+
-set cscoperelative
+"set cscopepathcomp=3
+"set cscopequickfix=s+,c+,d+,i+,t+,e+,a+
+"set cscoperelative
 
 "SignColumn
 set signcolumn=yes  "prevent unwanted shifting
@@ -267,7 +267,7 @@ augroup END
 
 "netrw {
 let g:netrw_liststyle=1
-let g:netrw_list_hide=netrw_gitignore#Hide()
+"let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_sizestyle="H"
 let g:netrw_keepdir=0
 "}
